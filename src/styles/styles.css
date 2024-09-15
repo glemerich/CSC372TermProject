@@ -1,0 +1,273 @@
+/*
+  Name: [Garrett Emerich]
+  Date: [09/15/2024]
+  Description: This file contains the styles for the Black Market website, including header, splash section,
+  product list, and footer.
+*/
+
+/* Import fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@700&family=Roboto:wght@400&display=swap');
+
+/* Define common color variables */
+:root {
+    --dark-bg: #1e1e1e;
+    --light-text: #e0e0e0;
+    --highlight-color: #b22222;
+    --secondary-bg: #181818;
+    --secondary-text: #b3b3b3;
+    --highlight-hover: #a11d1d;
+    --button-bg: #951b1b;
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; 
+    line-height: 1.6;
+    background-color: var(--dark-bg); 
+    color: var(--light-text); 
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+header h1 {
+    font-size: 3em;
+    letter-spacing: 2px;
+    font-family: 'Crimson Pro', serif;
+    text-transform: uppercase;
+    color: var(--light-text);
+    margin-bottom: 10px;
+}
+
+header h1 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    color: var(--highlight-color);
+}
+
+/* Splash Section */
+.splash {
+    background-color: var(--secondary-bg);
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0px 0px 15px #333;
+}
+
+.splash h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: var(--light-text);
+    font-family: 'Crimson Pro', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.splash .tagline {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: var(--button-bg);
+}
+
+.splash .description {
+    font-size: 1.2em;
+    color: var(--secondary-text);
+    margin-bottom: 30px;
+}
+
+.splash .featured-product {
+    margin: 20px 0;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 0px 10px #333;
+}
+
+.splash .features ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.splash .features ul li {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: var(--light-text);
+}
+
+.splash .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--button-bg);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #444;
+}
+
+.splash .cta-button:hover {
+    background-color: var(--highlight-hover);
+}
+
+/* Search Field Styles */
+.search {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.search input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    background-color: #222;
+    border: 1px solid #444;
+    color: var(--light-text);
+    font-size: 1em;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.search input[type="text"]::placeholder {
+    color: #888;
+}
+
+.search button {
+    padding: 10px 20px;
+    background-color: var(--highlight-color);
+    color: #fff;
+    border: none;
+    font-size: 1em;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #444;
+}
+
+.search button:hover {
+    background-color: var(--highlight-hover);
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #444;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer a {
+    color: var(--highlight-color); 
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Product List Section */
+.product-list {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-list h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Controls for sorting and filtering */
+.controls {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.controls label {
+    margin-right: 10px;
+}
+
+.controls select {
+    padding: 5px;
+    margin-right: 20px;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border: 1px solid #444;
+    box-shadow: 0px 0px 10px #333;
+    text-align: center;
+    color: var(--light-text);
+}
+
+.product-item img {
+    max-width: 100%; 
+    height: 200px; 
+    object-fit: contain; 
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.product-item .price {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: var(--highlight-color);
+}
+
+.product-item a {
+    color: var(--highlight-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.product-item a:hover {
+    text-decoration: underline;
+}
