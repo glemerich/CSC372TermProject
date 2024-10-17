@@ -1,6 +1,6 @@
 /*
   Name: [Garrett Emerich]
-  Date: [09/15/2024]
+  Date: [10/01/2024]
   Description: This file contains the styles for the Black Market website, including header, splash section,
   product list, and footer.
 */
@@ -270,4 +270,10 @@ footer a:hover {
 
 .product-item a:hover {
     text-decoration: underline;
+}
+
+/*Shopping Cart*/
+
+.cart-item-details p {
+    margin: 5px 0;
 }

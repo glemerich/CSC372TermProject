@@ -1,0 +1,170 @@
+/*
+  Name: [Garrett Emerich]
+  Date: [10/16/2024]
+  Description: This file contains the styling for the admin portion of the black market web app.
+*/
+
+/* Import fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@700&family=Roboto:wght@400&display=swap');
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Admin Navigation */
+.admin-nav h1 {
+    font-family: 'Crimson Pro', serif; 
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.admin-nav {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 20px;
+}
+
+.admin-nav h1 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.admin-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.admin-nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.admin-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Bulk Upload Section */
+.bulk-upload {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px #aaa;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.bulk-upload h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.bulk-upload p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.bulk-upload pre {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: monospace;
+}
+
+.upload-button {
+    padding: 10px 20px;
+    background-color: #951b1b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.upload-button:hover {
+    background-color: #a11d1d;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+/* Admin Product Buttons */
+.edit-button, .delete-button, .archive-button {
+    width: 100px;  
+    padding: 5px;  
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background-color: #951b1b;
+    color: #fff;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 40px;  
+}
+
+.edit-button:hover, .delete-button:hover, .archive-button:hover {
+    background-color: #a11d1d;
+}
+
+
+/* Product Edit Form */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;  /* Ensure the form is aligned to the left */
+}
+
+.edit-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.edit-form input[type="text"],
+.edit-form textarea {
+    margin-bottom: 15px;  /* Add space between fields */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;  /* Make sure the input fields take full width */
+}
+
+.edit-form textarea {
+    resize: vertical;  /* Allow vertical resizing for textarea */
+}
+
+.save-button {
+    padding: 10px 20px;
+    background-color: #951b1b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    align-self: flex-start;  /* Aligns the save button to the left */
+}
+
+.save-button:hover {
+    background-color: #a11d1d;
+}
