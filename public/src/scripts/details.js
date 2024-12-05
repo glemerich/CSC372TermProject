@@ -1,7 +1,11 @@
-// Function to fetch product details
+/*
+  Name: Garrett Emerich
+  Date: 12/03/2024
+  Description: [script for product details page]
+*/
 async function loadProductDetails() {
     try {
-        // Get product ID from URL query string
+        
         const params = new URLSearchParams(window.location.search);
         const productId = params.get('id');
 
@@ -9,7 +13,7 @@ async function loadProductDetails() {
             throw new Error("No product ID provided in the URL.");
         }
 
-        // Fetch product data from the backend
+        // Fetch product data 
         const response = await fetch(`/api/products/${productId}`);
         if (!response.ok) {
             throw new Error(`Failed to fetch product details: ${response.status}`);
@@ -25,7 +29,7 @@ async function loadProductDetails() {
         document.getElementById('product-category').textContent = `Category: ${product.category_id}`;
         document.getElementById('product-stock').textContent = product.is_featured ? 'Featured Item' : 'Available';
 
-        // Enable "Add to Cart" button and attach event listener
+        // Enable ad to cart button 
         const addToCartButton = document.getElementById('add-to-cart');
         addToCartButton.disabled = false;
         addToCartButton.addEventListener('click', () => addToCart(productId));
@@ -38,12 +42,12 @@ async function loadProductDetails() {
 // Function to add product to cart
 async function addToCart(productId) {
     try {
-        const response = await fetch('/api/carts/add', { // Updated endpoint
+        const response = await fetch('/api/carts/add', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ productId, quantity: 1 }), // Ensure both productId and quantity are sent
+            body: JSON.stringify({ productId, quantity: 1 }), 
         });
 
         if (!response.ok) {
@@ -57,5 +61,4 @@ async function addToCart(productId) {
     }
 }
 
-// Run the function when the page loads
 document.addEventListener('DOMContentLoaded', loadProductDetails);

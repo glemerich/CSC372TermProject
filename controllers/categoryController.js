@@ -1,7 +1,7 @@
 /*
   Name: Garrett Emerich
   Date: 12/03/2024
-  Description: [script for ]
+  Description: [script for category endpoints]
 */
 const categoryModel = require('../models/categoryModel');
 

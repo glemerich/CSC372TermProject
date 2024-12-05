@@ -12,7 +12,7 @@ async function loadProducts() {
 
         const products = await response.json();
         const productGrid = document.querySelector('.product-grid');
-        productGrid.innerHTML = ''; // Clear existing products
+        productGrid.innerHTML = ''; 
 
         products.forEach((product) => {
             productGrid.innerHTML += `

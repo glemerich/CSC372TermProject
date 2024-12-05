@@ -1,4 +1,9 @@
-const path = require('path');
+c/*
+  Name: Garrett Emerich
+  Date: 12/03/2024
+  Description: [script for easy db access]
+*/
+onst path = require('path');
 const Database = require('better-sqlite3');
 
 // Define the path to the database file

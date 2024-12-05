@@ -1,3 +1,8 @@
+/*
+  Name: Garrett Emerich
+  Date: 12/03/2024
+  Description: [script for admin product upload page]
+*/
 document.getElementById('upload-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const fileInput = document.getElementById('file-input');
