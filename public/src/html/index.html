@@ -2,8 +2,7 @@
 <!--
   Name: [Garrett Emerich]
   Date: [10/01/2024]
-  Description: This is the home page for the Black Market store. It includes the header, splash section,
-  search form, and footer.
+  Description: This is the home page for the Black Market store. It dynamically displays the featured product.
 -->
 
 <html lang="en">
@@ -16,7 +15,7 @@
 <body>
     <!-- Header -->
     <header>
-        <h1><a href="index.html">Black Market</a></h1>
+        <h1><a href="/src/html/index.html">Black Market</a></h1>
         <nav>
             <ul>
                 <li><a href="/src/html/products.html">Products</a></li>
@@ -33,43 +32,41 @@
         </div>
     </header>
 
-   <!-- Splash Section -->
-   <section class="splash">
-    <div class="splash-content">
-        <h2 class="tagline">Where hidden treasures await</h2>
-        <p class="description">
-            Dive into a world of exclusive products curated just for you.
-        </p>
-        
-        <div class="product-item">
-            <img src="/src/images/cybertruck.jpg" alt="Tesla Cybertruck Hot Wheels Toy">
-            <h3>Tesla Cybertruck Diecast Model</h3>
-            <p class="price">$19.99</p>
-            <a href="details.html">View Details</a>
+    <!-- Splash Section -->
+    <section class="splash">
+        <div class="splash-content">
+            <h2 class="tagline">Where hidden treasures await</h2>
+            <p class="description">
+                Dive into a world of exclusive products curated just for you.
+            </p>
+
+            <!-- Featured Product Placeholder -->
+            <div id="featured-product" class="product-item">
+                <p>Loading featured product...</p>
+            </div>
+
+            <div class="features">
+                <ul>
+                    <li>Rare finds from around the world</li>
+                    <li>Curated collections for the bold</li>
+                    <li>Exclusives you won't find anywhere else</li>
+                </ul>
+            </div>
+
+            <a href="/src/html/products.html" class="cta-button">Explore Now</a>
         </div>
-
-        <div class="features">
-            <ul>
-                <li>Rare finds from around the world</li>
-                <li>Curated collections for the bold</li>
-                <li>Exclusives you won't find anywhere else</li>
-            </ul>
-        </div>
-
-        <a href="#" class="cta-button">Explore Now</a>
-    </div>
-</section>
-
+    </section>
 
     <!-- Footer -->
-<footer>
-    <p>&copy; 2024 Black Market. All rights reserved.</p>
-    <p>Contact us: <a href="mailto:support@blackmarket.com">support@blackmarket.com</a></p>
-    <p>Follow us on social media:
-        <a href="#">Twitter</a> | 
-        <a href="#">Instagram</a> | 
-        <a href="#">Facebook</a>
-    </p>
-</footer>
+    <footer>
+        <p>&copy; 2024 Black Market. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:support@blackmarket.com">support@blackmarket.com</a></p>
+        <p>Follow us on social media:
+            <a href="#">Twitter</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">Facebook</a>
+        </p>
+    </footer>
+    <script src="/src/scripts/index.js"></script>
 </body>
 </html>

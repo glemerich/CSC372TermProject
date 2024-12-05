@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-
 <!--
   Name: Garrett Emerich
-  Date: [10//16/2024]
-  Description: This is the bulk upload page for the Black Market admin interface. 
+  Date: 12/03/2024
+  Description: This is the admin  upload page for the Black Market store.
 -->
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Bulk Upload</title>
-    <link rel="stylesheet" href="/src/styles/admin.css">
+    <link rel="stylesheet" href="/src/styles/admin.css"> 
 </head>
 <body>
-
     <!-- Admin Navigation -->
     <nav class="admin-nav">
         <h1>Black Market Admin</h1>
@@ -25,38 +23,16 @@
         </ul>
     </nav>
 
-    <!-- Bulk Upload Form -->
-    <section class="bulk-upload">
+    <!-- Bulk Upload Section -->
+    <section class="admin-bulk-upload">
         <h2>Bulk Upload Products</h2>
-        <p>Upload a file in JSON, CSV, or text format to add products in bulk. Example format below:</p>
-
-        <pre>
-[
-    {
-        "productId": 1,
-        "name": "Tesla Cybertruck Diecast Model",
-        "description": "High-quality diecast model of the futuristic vehicle.",
-        "category": "Collectibles",
-        "price": 19.99,
-        "imagePath": "/src/images/cybertruck.jpg"
-    },
-    {
-        "productId": 2,
-        "name": "Vintage Polaroid SX-70 Camera",
-        "description": "Classic instant camera with a folding body.",
-        "category": "Cameras",
-        "price": 299.99,
-        "imagePath": "/src/images/polaroid.jpg"
-    }
-]
-        </pre>
-
-        <form action="#" method="post" enctype="multipart/form-data">
-            <label for="file">Select a file to upload:</label>
-            <input type="file" id="file" name="file" accept=".json,.csv,.txt">
-            <button type="submit" class="upload-button">Upload File</button>
+        <form id="upload-form" enctype="multipart/form-data">
+            <label for="file-input">Select JSON File:</label>
+            <input type="file" id="file-input" name="file" accept="application/json" required>
+            <button type="submit">Upload</button>
         </form>
     </section>
 
+    <script src="/src/scripts/admin-upload.js"></script> 
 </body>
 </html>

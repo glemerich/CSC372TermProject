@@ -1,63 +1,60 @@
-const products = [
-    { 
-        id: 1, 
-        name: 'Tesla Cybertruck Diecast Model', 
-        price: 19.99, 
-        image_url: '/src/images/cybertruck.jpg', 
-        description: 'High-quality diecast model of the futuristic vehicle.', 
-        category_id: 3, 
-        is_featured: true 
-    },
-    { 
-        id: 2, 
-        name: 'Vintage Polaroid SX-70 Camera', 
-        price: 299.99, 
-        image_url: '/src/images/polaroid.jpg', 
-        description: 'Classic instant camera with a folding body.', 
-        category_id: 2, 
-        is_featured: true 
-    },
-    { 
-        id: 3, 
-        name: 'Handcrafted Damascus Steel Hunting Knife', 
-        price: 199.99, 
-        image_url: '/src/images/knife.jpg', 
-        description: 'Sharp and durable knife made from Damascus steel.', 
-        category_id: 4, 
-        is_featured: false 
-    },
-    { 
-        id: 4, 
-        name: 'Fossilized Megalodon Shark Tooth', 
-        price: 149.99, 
-        image_url: '/src/images/sharktooth.jpg', 
-        description: 'Rare fossil of a prehistoric Megalodon shark.', 
-        category_id: 1, 
-        is_featured: true 
-    },
-];
+/*
+  Name: Garrett Emerich
+  Date: 12/03/2024
+  Description: [script for interacting with products in db]
+*/
+const db = require('../db');
 
-exports.getAllProducts = () => products;
+exports.getAllProducts = () => {
+    const sql = `
+        SELECT products.id, products.name, products.description, products.price, 
+               products.image_url, products.category_id, products.is_featured, 
+               categories.name AS category_name
+        FROM products
+        LEFT JOIN categories ON products.category_id = categories.id;
+    `;
+    return db.prepare(sql).all();
+};
 
-exports.getProductById = (id) => products.find((product) => product.id === parseInt(id));
+
+exports.getProductById = (id) => {
+    const sql = `
+        SELECT products.id, products.name, products.description, products.price, 
+               products.image_url, products.category_id, products.is_featured, 
+               categories.name AS category_name
+        FROM products
+        LEFT JOIN categories ON products.category_id = categories.id
+        WHERE products.id = ?;
+    `;
+    return db.prepare(sql).get(id);
+};
+
 
 exports.createProduct = (newProduct) => {
-    const id = products.length + 1;
-    const product = { id, ...newProduct };
-    products.push(product);
-    return product;
+    const { name, description, price, image_url, category_id, is_featured } = newProduct;
+    const sql = `
+        INSERT INTO products (name, description, price, image_url, category_id, is_featured)
+        VALUES (?, ?, ?, ?, ?, ?);
+    `;
+    const result = db.prepare(sql).run(name, description, price, image_url, category_id, is_featured);
+    return { id: result.lastInsertRowid, ...newProduct };
 };
+
 
 exports.updateProduct = (id, updatedProduct) => {
-    const index = products.findIndex((product) => product.id === parseInt(id));
-    if (index !== -1) {
-        products[index] = { ...products[index], ...updatedProduct };
-        return products[index];
-    }
-    return null;
+    const { name, description, price, image_url, category_id, is_featured } = updatedProduct;
+    const sql = `
+        UPDATE products
+        SET name = ?, description = ?, price = ?, image_url = ?, category_id = ?, is_featured = ?
+        WHERE id = ?;
+    `;
+    const result = db.prepare(sql).run(name, description, price, image_url, category_id, is_featured, id);
+    return result.changes > 0 ? { id, ...updatedProduct } : null;
 };
 
+
 exports.deleteProduct = (id) => {
-    const index = products.findIndex((product) => product.id === parseInt(id));
-    if (index !== -1) products.splice(index, 1);
+    const sql = `DELETE FROM products WHERE id = ?;`;
+    const result = db.prepare(sql).run(id);
+    return result.changes > 0;
 };

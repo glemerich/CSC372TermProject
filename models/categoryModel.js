@@ -1,27 +1,36 @@
-const categories = [
-    { id: 1, name: 'Collectibles', priority_level: 1 },
-    { id: 2, name: 'Cameras', priority_level: 2 },
-    { id: 3, name: 'Toys', priority_level: 3 },
-    { id: 4, name: 'Outdoor', priority_level: 4 },
-];
+const db = require('../db');
 
-exports.getAllCategories = () => categories;
-exports.getCategoryById = (id) => categories.find((category) => category.id === parseInt(id));
+// Get all categories
+exports.getAllCategories = () => {
+    const sql = 'SELECT * FROM categories';
+    return db.prepare(sql).all();
+};
+
+// Get category by ID
+exports.getCategoryById = (id) => {
+    const sql = 'SELECT * FROM categories WHERE id = ?';
+    return db.prepare(sql).get(id);
+};
+
+// Create a new category
 exports.createCategory = (newCategory) => {
-    const id = categories.length + 1;
-    const category = { id, ...newCategory };
-    categories.push(category);
-    return category;
+    const { name, priority_level } = newCategory;
+    const sql = 'INSERT INTO categories (name, priority_level) VALUES (?, ?)';
+    const result = db.prepare(sql).run(name, priority_level);
+    return { id: result.lastInsertRowid, name, priority_level };
 };
+
+// Update a category
 exports.updateCategory = (id, updatedCategory) => {
-    const index = categories.findIndex((category) => category.id === parseInt(id));
-    if (index !== -1) {
-        categories[index] = { ...categories[index], ...updatedCategory };
-        return categories[index];
-    }
-    return null;
+    const { name, priority_level } = updatedCategory;
+    const sql = 'UPDATE categories SET name = ?, priority_level = ? WHERE id = ?';
+    const result = db.prepare(sql).run(name, priority_level, id);
+    return result.changes > 0 ? exports.getCategoryById(id) : null;
 };
+
+// Delete a category
 exports.deleteCategory = (id) => {
-    const index = categories.findIndex((category) => category.id === parseInt(id));
-    if (index !== -1) categories.splice(index, 1);
+    const sql = 'DELETE FROM categories WHERE id = ?';
+    const result = db.prepare(sql).run(id);
+    return result.changes > 0;
 };

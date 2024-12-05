@@ -1,33 +1,34 @@
-// Fetch and display products
+/*
+  Name: Garrett Emerich
+  Date: 12/03/2024
+  Description: [script for main products page]
+*/
 async function loadProducts() {
     try {
-        const response = await fetch('/api/products'); // Fetch products from the backend
+        const response = await fetch('/api/products');
         if (!response.ok) {
             throw new Error(`Failed to fetch products: ${response.status}`);
         }
-        const products = await response.json(); // Parse JSON response
 
-        const productGrid = document.querySelector('.product-grid'); // Get the product grid container
+        const products = await response.json();
+        const productGrid = document.querySelector('.product-grid');
+        productGrid.innerHTML = ''; // Clear existing products
 
-        // Clear existing content
-        productGrid.innerHTML = '';
-
-        // Populate the grid with products
         products.forEach((product) => {
-            const productItem = document.createElement('div');
-            productItem.classList.add('product-item');
-            productItem.innerHTML = `
-                <img src="${product.image_url}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p class="price">$${product.price.toFixed(2)}</p>
-                <a href="#">View Details</a>
+            productGrid.innerHTML += `
+                <div class="product-item">
+                    <img src="${product.image_url}" alt="${product.name}" class="product-image">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p class="price">$${product.price.toFixed(2)}</p>
+                    <a href="/src/html/details.html?id=${product.id}" class="view-details">View Details</a>
+                </div>
             `;
-            productGrid.appendChild(productItem);
         });
     } catch (error) {
         console.error('Error loading products:', error);
+        alert('Failed to load products. Please try again.');
     }
 }
 
-// Run the function when the page loads
 document.addEventListener('DOMContentLoaded', loadProducts);

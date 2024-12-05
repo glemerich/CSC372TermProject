@@ -2,8 +2,8 @@
 
 <!--
   Name: [Garrett Emerich]
-  Date: [10/01/2024]
-  Description: This is the product details page for the tesla cybertruck model.
+  Date: [12/03/2024]
+  Description: This is the product details page for dynamically displaying product data.
 -->
 
 <html lang="en">
@@ -36,20 +36,17 @@
 
     <!-- Product Details Section -->
     <section class="product-item">
-        <h2>Tesla Cybertruck Diecast Model</h2>
-        <img src="/src/images/cybertruck.jpg" alt="Tesla Cybertruck Diecast Model">
+        <h2 id="product-name">Loading...</h2>
+        <img id="product-image" src="" alt="">
         
         <div class="product-info">
-            <p class="description">
-                This detailed Tesla Cybertruck diecast model is perfect for collectors. It replicates the original design 
-                of the futuristic vehicle in a compact form.
-            </p>
-            <p class="price">$19.99</p>
-            <p>Category: Collectibles</p>
-            <p>Stock: Available</p>
+            <p id="product-description" class="description">Loading description...</p>
+            <p id="product-price" class="price">Loading price...</p>
+            <p id="product-category">Loading category...</p>
+            <p id="product-stock">Loading stock...</p>
         </div>
 
-        <button class="cta-button">Add to Cart</button>
+        <button id="add-to-cart" class="cta-button" disabled>Add to Cart</button>
     </section>
 
     <!-- Footer -->
@@ -62,6 +59,6 @@
             <a href="#">Facebook</a>
         </p>
     </footer>
-
+    <script src="/src/scripts/details.js"></script>
 </body>
 </html>
