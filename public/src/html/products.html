@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+  Name: [Garrett Emerich]
+  Date: [10/01/2024]
+  Description: This is the product page for the Black Market store. It includes all of the items currently for sale.
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Market - Products</title>
+    <link rel="stylesheet" href="/src/styles/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1><a href="index.html">Black Market</a></h1>
+        <nav>
+            <ul>
+                <li><a href="/src/html/products.html">Products</a></li>
+                <li><a href="/src/html/cart.html">Cart</a></li>
+                <li><a href="#">Sign In</a></li>
+            </ul>
+        </nav>
+
+        <div class="search">
+            <form action="/src/html/products.html" method="get">
+                <input type="text" id="search" name="search" placeholder="Search for treasures...">
+                <button type="submit">Go</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Product Listing Section -->
+    <section class="product-list">
+        <h2>Available Products</h2>
+
+        <!-- Sort and Filter Controls -->
+        <div class="controls">
+            <label for="sort">Sort by:</label>
+            <select id="sort">
+                <option value="popularity">Popularity</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+            </select>
+
+            <label for="filter">Filter by:</label>
+            <select id="filter">
+                <option value="all">All</option>
+                <option value="category1">Category 1</option>
+                <option value="category2">Category 2</option>
+            </select>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid">
+            
+            <div class="product-item">
+                <img src="/src/images/polaroid.jpg" alt="Vintage Polaroid SX-70 Camera">
+                <h3>Vintage Polaroid SX-70 Camera</h3>
+                <p class="price">$299.99</p>
+              <!--  <a href="#">View Details</a> -->
+            </div>
+
+            
+            <div class="product-item">
+                <img src="/src/images/cybertruck.jpg" alt="Tesla Cybertruck Hot Wheels Toy">
+                <h3>Tesla Cybertruck Diecast Model</h3>
+                <p class="price">$19.99</p>
+                <a href="details.html">View Details</a>
+            </div>
+
+            <div class="product-item">
+                <img src="/src/images/knife.jpg" alt="Handcrafted Damascus Steel Hunting Knife">
+                <h3>Handcrafted Damascus Steel Hunting Knife</h3>
+                <p class="price">$199.99</p>
+                <!--<a href="#">View Details</a>-->
+            </div>
+
+            <div class="product-item">
+                <img src="/src/images/sharktooth.jpg" alt="Fossilized Megalodon Shark Tooth">
+                <h3>Fossilized Megalodon Shark Tooth</h3>
+                <p class="price">$149.99</p>
+               <!-- <a href="#">View Details</a>-->
+            </div>
+        </div>
+    </section>
+     <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Black Market. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:support@blackmarket.com">support@blackmarket.com</a></p>
+        <p>Follow us on social media:
+            <a href="#">Twitter</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">Facebook</a>
+        </p>
+    </footer>
+    <script src="../scripts/products.js"></script>
+</body>
+</html>

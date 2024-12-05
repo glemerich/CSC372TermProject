@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!--
+  Name: Garrett Emerich
+  Date: [10//16/2024]
+  Description: This is the product edit page for the Black Market admin interface. 
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Edit Product</title>
+    <link rel="stylesheet" href="/src/styles/admin.css">
+</head>
+<body>
+
+    <!-- Admin Navigation -->
+    <nav class="admin-nav">
+        <h1>Black Market Admin</h1>
+        <ul>
+            <li><a href="/src/html/admin-upload.html">Bulk Upload</a></li>
+            <li><a href="/src/html/admin-products.html">Product Listing</a></li>
+            <li><a href="#">Sign Out</a></li>
+        </ul>
+    </nav>
+
+    <a href="/src/html/admin-products.html" class="back-button">Back to Product Listing</a>
+ 
+    <!-- Product Edit Section -->
+    <section class="edit-product">
+        <h2>Edit Product</h2>
+
+        <!-- Product Edit Form -->
+        <form action="#" method="post" class="edit-form">
+            <label for="product-id">Product ID:</label>
+            <input type="text" id="product-id" value="1" disabled>
+
+            <label for="product-name">Product Name:</label>
+            <input type="text" id="product-name" value="Tesla Cybertruck Diecast Model">
+
+            <label for="product-description">Description:</label>
+            <textarea id="product-description" rows="5">High-quality diecast model of the futuristic vehicle.</textarea>
+
+            <label for="product-category">Category:</label>
+            <input type="text" id="product-category" value="Collectibles">
+
+            <label for="product-price">Price:</label>
+            <input type="text" id="product-price" value="$19.99">
+
+            <label for="product-image">Image Path:</label>
+            <input type="text" id="product-image" value="/src/images/cybertruck.jpg">
+
+            <button type="submit" class="save-button">Save Changes</button>
+        </form>
+
+    </section>
+
+</body>
+</html>

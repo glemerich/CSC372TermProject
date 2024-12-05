@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<!--
+  Name: Garrett Emerich
+  Date: [10//16/2024]
+  Description: This is the product listing page for the Black Market admin interface.
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Product Listing</title>
+    <link rel="stylesheet" href="/src/styles/admin.css">
+</head>
+<body>
+
+    <!-- Admin Navigation -->
+    <nav class="admin-nav">
+        <h1>Black Market Admin</h1>
+        <ul>
+            <li><a href="/src/html/admin-upload.html">Bulk Upload</a></li>
+            <li><a href="/src/html/admin-products.html">Product Listing</a></li>
+            <li><a href="#">Sign Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- Product Listing Section -->
+    <section class="admin-products">
+        <h2>Product Listing</h2>
+
+        <!-- Search and Filter Controls -->
+        <div class="controls">
+            <label for="search">Search Product:</label>
+            <input type="text" id="search" placeholder="Enter product name...">
+            <label for="category-filter">Filter by Category:</label>
+            <select id="category-filter">
+                <option value="all">All</option>
+                <option value="collectibles">Collectibles</option>
+                <option value="cameras">Cameras</option>
+            </select>
+            <button class="add-product-button">Add New Product</button>
+        </div>
+
+        <!-- Product Table -->
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <!-- Sample Products-->
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Tesla Cybertruck Diecast Model</td>
+                    <td>High-quality diecast model of the futuristic vehicle.</td>
+                    <td>Collectibles</td>
+                    <td>$19.99</td>
+                    <td>
+                        <form action="/src/html/product-edit.html" method="get" style="display: inline;">
+                            <button type="submit" class="edit-button">Edit</button>
+                        </form>
+                        <button class="delete-button">Delete</button>
+                        <button class="archive-button">Archive</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Vintage Polaroid SX-70 Camera</td>
+                    <td>Classic instant camera with a folding body.</td>
+                    <td>Cameras</td>
+                    <td>$299.99</td>
+                    <td>
+                        <form action="/src/html/product-edit.html" method="get" style="display: inline;">
+                            <button type="submit" class="edit-button">Edit</button>
+                        </form>
+                        <button class="delete-button">Delete</button>
+                        <button class="archive-button">Archive</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+</body>
+</html>
